@@ -36,7 +36,6 @@
     "new:component": "cremalab-scripts-mobile new component",
     "new:type": "cremalab-scripts-mobile new type",
     "new:util": "cremalab-scripts-mobile new util",
-
     "postinstall": "patch-package",
     "prepare": "husky install"
   },
