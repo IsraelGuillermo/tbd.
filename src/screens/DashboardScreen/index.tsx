@@ -1,24 +1,23 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
-import Tabs from "../../components/BottomTabNavigator"
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "#4076FF",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   text: {
-    color: "black",
+    color: "white",
     fontSize: 45,
   },
 })
-export default function HomeScreen() {
+
+export default function JarsAndHatsScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-      <Tabs />
+      <Text style={styles.text}>Jars and Hats</Text>
     </View>
   )
 }
