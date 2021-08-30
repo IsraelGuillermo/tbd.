@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { Animated, StyleSheet, View } from "react-native"
 
 const styles = StyleSheet.create({
   container: {
@@ -16,13 +16,21 @@ const styles = StyleSheet.create({
 })
 
 export default function LoadingScreen() {
+  // const moveAnimation = useRef(new Animated.Value(0)).current
+
+  // const animate = () => {
+  //   Animated.timing(moveAnimation, {}).start()
+  // }
+  // useEffect(() => {
+  //   animate()
+  // }, [])
   const navigation = useNavigation()
   setTimeout(() => {
     navigation.navigate("ProblemSolver")
   }, 3000)
   return (
     <View style={styles.container}>
-      <Text style={styles.tbd}>tbd.</Text>
+      <Animated.Text style={[styles.tbd]}>tbd.</Animated.Text>
     </View>
   )
 }
