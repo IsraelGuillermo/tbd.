@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
     fontSize: 45,
   },
 })
-export default function HomeScreen() {
+export default function NotificationsScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
+      <Text style={styles.text}>Notifications</Text>
     </View>
   )
 }

@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
 export default function ProblemSolverScreen() {
   const navigation = useNavigation()
   setTimeout(() => {
-    navigation.navigate("Home")
+    navigation.navigate("Main")
+    console.log("Going to next route")
   }, 3000)
   return (
     <View style={styles.container}>
