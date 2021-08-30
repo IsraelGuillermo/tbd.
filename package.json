@@ -36,6 +36,7 @@
     "new:component": "cremalab-scripts-mobile new component",
     "new:type": "cremalab-scripts-mobile new type",
     "new:util": "cremalab-scripts-mobile new util",
+    "prepush": "",
     "postinstall": "patch-package",
     "prepare": "husky install"
   },
@@ -52,6 +53,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-safe-area-context": "3.1.9",
     "react-native-screens": "~2.15.2",
+    "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
