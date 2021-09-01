@@ -7,9 +7,10 @@ interface Props {
   title: string
   icon: keyof SvgIcons
   width: string
+  backgroundColor: string
 }
 
-export function Card({ title, icon, width }: Props) {
+export function Card({ title, icon, width, backgroundColor }: Props) {
   const styles = StyleSheet.create({
     row: {
       flexDirection: "row",
@@ -18,7 +19,7 @@ export function Card({ title, icon, width }: Props) {
     },
     container: {
       borderRadius: 16,
-      backgroundColor: "blue",
+      backgroundColor: backgroundColor,
       height: 170,
       width,
       padding: 15,

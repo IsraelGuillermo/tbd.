@@ -19,7 +19,12 @@ export default function JarsAndHatsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Jars and Hats</Text>
-      <Card title="Weekend Trips" icon="map" width="87%" />
+      <Card
+        title="Weekend Trips"
+        icon="map"
+        width="87%"
+        backgroundColor="#8B9F10"
+      />
     </View>
   )
 }
