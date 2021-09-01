@@ -12,15 +12,13 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: "#0D0B26",
           borderRadius: 8,
         },
       }}
       initialRouteName={"Home"}
-      tabBarOptions={{
-        showLabel: false,
-      }}
     >
       <Tab.Screen
         name="Home"
