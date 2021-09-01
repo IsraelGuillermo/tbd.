@@ -16,14 +16,6 @@ const styles = StyleSheet.create({
 })
 
 export default function LoadingScreen() {
-  // const moveAnimation = useRef(new Animated.Value(0)).current
-
-  // const animate = () => {
-  //   Animated.timing(moveAnimation, {}).start()
-  // }
-  // useEffect(() => {
-  //   animate()
-  // }, [])
   const navigation = useNavigation()
   setTimeout(() => {
     navigation.navigate("ProblemSolver")
