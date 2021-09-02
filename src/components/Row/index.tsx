@@ -1,22 +1,17 @@
-import React, { ReactNode } from "react"
-import { StyleSheet, View } from "react-native"
+import React from "react"
+import { StyleSheet, View, ViewStyle } from "react-native"
 
 interface Props {
-  children: ReactNode
-  height?: number
-  size?: number
+  children: React.ReactNode
+  style?: ViewStyle
 }
 
-export default function Row({ children, height, size = 45 }: Props) {
+export default function Row({ children, style }: Props) {
   const styles = StyleSheet.create({
     row: {
-      //   backgroundColor: "white",
-      display: "flex",
-      width: "100%",
       flexDirection: "row",
-      height: height ?? size,
       alignItems: "center",
     },
   })
-  return <View style={styles.row}>{children}</View>
+  return <View style={[styles.row, style]}>{children}</View>
 }

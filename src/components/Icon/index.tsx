@@ -5,7 +5,7 @@ import SvgIcon from "../SvgIcon"
 
 interface Props {
   iconName: keyof SvgIcons
-  backgroundColor: string
+  backgroundColor?: string
 }
 
 export default function Icon({ iconName, backgroundColor }: Props) {
@@ -15,14 +15,13 @@ export default function Icon({ iconName, backgroundColor }: Props) {
       backgroundColor: backgroundColor,
       height: 38,
       width: 38,
-      display: "flex",
       justifyContent: "center",
       alignItems: "center",
     },
   })
   return (
     <View style={styles.background}>
-      <SvgIcon variant={iconName} size={24} color="white" />
+      <SvgIcon variant={iconName} size={24} />
     </View>
   )
 }
