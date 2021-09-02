@@ -13,3 +13,6 @@ coverage
 
 # macOS
 .DS_Store
+
+#misc 
+.vscode

@@ -5,4 +5,11 @@ export interface SvgIcons {
   jars: string
   map: string
   profile: string
+  creditCard: string
+  target: string
+  zap: string
+  film: string
+  sun: string
+  setting: string
+  union: string
 }
