@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { SvgIcons } from "../../types/SvgIcons"
+import Row from "../Row"
 import SvgIcon from "../SvgIcon"
 
 interface Props {
@@ -12,42 +13,42 @@ interface Props {
 
 export function Card({ title, icon, width, backgroundColor }: Props) {
   const styles = StyleSheet.create({
-    row: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignContent: "center",
-    },
     container: {
       borderRadius: 16,
       backgroundColor: backgroundColor,
       height: 170,
       width,
-      padding: 15,
     },
     title: {
       color: "white",
       fontSize: 14,
     },
+    headerRow: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
   })
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.row}>
-          <View style={[styles.row, { width: 120 }]}>
-            <SvgIcon variant={icon} />
-            <Text style={styles.title}>{title}</Text>
-          </View>
-          <SvgIcon variant="ellipsis" />
+        <View style={{ padding: 20, height: "80%" }}>
+          <Row style={{ justifyContent: "space-between" }}>
+            <Row style={styles.headerRow}>
+              <SvgIcon variant={icon} />
+              <Text style={[styles.title, { paddingLeft: 10 }]}>{title}</Text>
+            </Row>
+            <SvgIcon variant="ellipsis" />
+          </Row>
         </View>
-        <View
+        <Row
           style={{
-            height: 32,
-            width: "108.75%",
+            width: "100%",
+            height: "20%",
             backgroundColor: "#2D344B",
-            position: "absolute",
-            top: 150,
             borderBottomEndRadius: 16,
             borderBottomStartRadius: 16,
+            justifyContent: "center",
+            alignSelf: "center",
           }}
         >
           <Text
@@ -57,7 +58,7 @@ export function Card({ title, icon, width, backgroundColor }: Props) {
           >
             DRAW SLIP
           </Text>
-        </View>
+        </Row>
       </View>
     </>
   )
