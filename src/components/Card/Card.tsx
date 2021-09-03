@@ -7,7 +7,7 @@ import SvgIcon from "../SvgIcon"
 interface Props {
   title: string
   icon: keyof SvgIcons
-  width: string
+  width: string | number
   backgroundColor: string
 }
 
@@ -29,37 +29,35 @@ export function Card({ title, icon, width, backgroundColor }: Props) {
     },
   })
   return (
-    <>
-      <View style={styles.container}>
-        <View style={{ padding: 20, height: "80%" }}>
-          <Row style={{ justifyContent: "space-between" }}>
-            <Row style={styles.headerRow}>
-              <SvgIcon variant={icon} />
-              <Text style={[styles.title, { paddingLeft: 10 }]}>{title}</Text>
-            </Row>
-            <SvgIcon variant="ellipsis" />
+    <View style={styles.container}>
+      <View style={{ padding: 20, height: "80%" }}>
+        <Row style={{ justifyContent: "space-between" }}>
+          <Row style={styles.headerRow}>
+            <SvgIcon variant={icon} />
+            <Text style={[styles.title, { paddingLeft: 10 }]}>{title}</Text>
           </Row>
-        </View>
-        <Row
-          style={{
-            width: "100%",
-            height: "20%",
-            backgroundColor: "#2D344B",
-            borderBottomEndRadius: 16,
-            borderBottomStartRadius: 16,
-            justifyContent: "center",
-            alignSelf: "center",
-          }}
-        >
-          <Text
-            style={{
-              color: "white",
-            }}
-          >
-            DRAW SLIP
-          </Text>
+          <SvgIcon variant="ellipsis" />
         </Row>
       </View>
-    </>
+      <Row
+        style={{
+          width: "100%",
+          height: "20%",
+          backgroundColor: "#2D344B",
+          borderBottomEndRadius: 16,
+          borderBottomStartRadius: 16,
+          justifyContent: "center",
+          alignSelf: "center",
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+          }}
+        >
+          DRAW SLIP
+        </Text>
+      </Row>
+    </View>
   )
 }

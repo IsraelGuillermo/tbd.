@@ -12,7 +12,6 @@ interface data {
   title: string
   icon: keyof SvgIcons
   backgroundColor: string
-  width: string
 }
 
 interface recentCardData {
@@ -25,25 +24,21 @@ export default function HomeScreen() {
       title: "test 1",
       icon: "map",
       backgroundColor: "#8B9F10",
-      width: "75%",
     },
     {
       title: "test 2",
       icon: "zap",
       backgroundColor: "#8B9F10",
-      width: "75%",
     },
     {
       title: "test 3",
       icon: "film",
       backgroundColor: "#8B9F10",
-      width: "75%",
     },
     {
       title: "test 4",
       icon: "creditCard",
       backgroundColor: "#8B9F10",
-      width: "75%",
     },
   ]
 
@@ -85,12 +80,13 @@ export default function HomeScreen() {
           <FlatList
             data={DATA}
             horizontal
+            showsHorizontalScrollIndicator={false}
             renderItem={({ item }) => (
               <Card
                 backgroundColor={item.backgroundColor}
                 title={item.title}
                 icon={item.icon}
-                width={item.width}
+                width={250}
               />
             )}
           />
@@ -112,7 +108,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "rgba(8, 14, 33, 0.96)",
-    flex: 1,
     alignItems: "center",
   },
   headerText: {
@@ -132,13 +127,14 @@ const styles = StyleSheet.create({
     height: "70%",
     justifyContent: "flex-start",
     width: "80%",
-
-    paddingVertical: 20,
+    paddingTop: 20,
+    paddingBottom: 130,
   },
   activeContainer: {
     height: "100%",
     justifyContent: "flex-start",
     width: "85%",
     paddingVertical: 20,
+    // flex: 1,
   },
 })
