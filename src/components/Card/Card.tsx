@@ -16,7 +16,7 @@ export function Card({ title, icon, width, backgroundColor }: Props) {
     container: {
       borderRadius: 16,
       backgroundColor: backgroundColor,
-      height: 170,
+      height: 150,
       width,
     },
     title: {

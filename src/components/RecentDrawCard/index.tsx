@@ -5,10 +5,16 @@ import { StyleSheet, Text, View } from "react-native"
 import Icon from "../Icon"
 import Row from "../Row"
 
-export default function RecentDrawCard() {
+interface Props {
+  title: string
+  date: string
+}
+
+export default function RecentDrawCard({ date, title }: Props) {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
   })
+
   const styles = StyleSheet.create({
     card: {
       height: 65,
@@ -47,8 +53,8 @@ export default function RecentDrawCard() {
               height: "100%",
             }}
           >
-            <Text style={styles.cardHeader}>Texting here</Text>
-            <Text style={styles.date}>08.13.2021 | You</Text>
+            <Text style={styles.cardHeader}>{title}</Text>
+            <Text style={styles.date}>{date}</Text>
           </View>
         </Row>
 

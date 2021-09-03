@@ -1,16 +1,68 @@
 import { Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins"
 import { AppLoading } from "expo"
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, Text, View } from "react-native"
 import { Card } from "../../components/Card"
 import Icon from "../../components/Icon"
 import RecentDrawCard from "../../components/RecentDrawCard"
 import Row from "../../components/Row"
+import { SvgIcons } from "../../types/SvgIcons"
 
+interface data {
+  title: string
+  icon: keyof SvgIcons
+  backgroundColor: string
+  width: string
+}
+
+interface recentCardData {
+  title: string
+  date: string
+}
 export default function HomeScreen() {
+  const DATA: data[] = [
+    {
+      title: "test 1",
+      icon: "map",
+      backgroundColor: "#8B9F10",
+      width: "75%",
+    },
+    {
+      title: "test 2",
+      icon: "zap",
+      backgroundColor: "#8B9F10",
+      width: "75%",
+    },
+    {
+      title: "test 3",
+      icon: "film",
+      backgroundColor: "#8B9F10",
+      width: "75%",
+    },
+    {
+      title: "test 4",
+      icon: "creditCard",
+      backgroundColor: "#8B9F10",
+      width: "75%",
+    },
+  ]
+
+  const recentCardData: recentCardData[] = [
+    { title: "testing 1", date: "08.13.21 | You" },
+    { title: "testing 2", date: "08.13.21 | You" },
+    { title: "testing 3", date: "08.13.21 | You" },
+    { title: "testing 4", date: "08.13.21 | You" },
+    { title: "testing 5", date: "08.13.21 | You" },
+    { title: "testing 6", date: "08.13.21 | You" },
+    { title: "testing 7", date: "08.13.21 | You" },
+    { title: "testing 8", date: "08.13.21 | You" },
+    { title: "testing 9", date: "08.13.21 | You" },
+  ]
+
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
   })
+
   if (!fontsLoaded) {
     return <AppLoading />
   }
@@ -30,18 +82,29 @@ export default function HomeScreen() {
       <Row>
         <View style={styles.activeContainer}>
           <Text style={styles.text}>Active Jars</Text>
-          <Card
-            backgroundColor="green"
-            title="Testing"
-            width="80%"
-            icon={"home"}
+          <FlatList
+            data={DATA}
+            horizontal
+            renderItem={({ item }) => (
+              <Card
+                backgroundColor={item.backgroundColor}
+                title={item.title}
+                icon={item.icon}
+                width={item.width}
+              />
+            )}
           />
         </View>
       </Row>
 
       <View style={styles.recentContainer}>
         <Text style={styles.text}>Recent Draws</Text>
-        <RecentDrawCard />
+        <FlatList
+          data={recentCardData}
+          renderItem={({ item }) => (
+            <RecentDrawCard title={item.title} date={item.date} />
+          )}
+        />
       </View>
     </View>
   )
