@@ -77,7 +77,14 @@ export default function HomeScreen() {
       <Row>
         <View style={styles.activeContainer}>
           <Text style={styles.text}>Active Jars</Text>
+        </View>
+      </Row>
+      <Row>
+        <View>
           <FlatList
+            contentContainerStyle={{
+              paddingLeft: 32,
+            }}
             data={DATA}
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -128,13 +135,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     width: "80%",
     paddingTop: 20,
-    paddingBottom: 130,
+    paddingBottom: 175,
   },
   activeContainer: {
     height: "100%",
     justifyContent: "flex-start",
-    width: "85%",
-    paddingVertical: 20,
+    width: "100%",
+    paddingVertical: 10,
+    paddingLeft: 32,
     // flex: 1,
   },
 })
