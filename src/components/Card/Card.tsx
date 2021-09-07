@@ -19,6 +19,7 @@ export function Card({ title, icon, width, backgroundColor }: Props) {
       height: 150,
       width,
       marginHorizontal: 12,
+      marginVertical: 12,
     },
     title: {
       color: "white",
