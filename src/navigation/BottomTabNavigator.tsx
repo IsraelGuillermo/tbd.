@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react"
 import SvgIcon from "../components/SvgIcon"
-import HomeScreen from "../screens/HomeScreen"
+import HomeScreen from "../screens/Dashboard"
 import IndecisiveFriendsScreen from "../screens/IndecisiveFriendsScreen"
 import JarsAndHatsScreen from "../screens/JarsAndHatsScreen"
 import NotificationsScreen from "../screens/NotificationsScreen"

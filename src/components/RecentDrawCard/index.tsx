@@ -2,6 +2,7 @@ import { Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins"
 import AppLoading from "expo-app-loading"
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
+import { useTheme } from "../../theme"
 import Icon from "../Icon"
 import Row from "../Row"
 
@@ -15,6 +16,7 @@ export default function RecentDrawCard({ date, title }: Props) {
     Poppins_400Regular,
   })
 
+  const theme = useTheme()
   const styles = StyleSheet.create({
     card: {
       height: 65,
@@ -24,7 +26,7 @@ export default function RecentDrawCard({ date, title }: Props) {
       borderBottomWidth: 1,
     },
     cardHeader: {
-      color: "white",
+      color: theme.colors.primary1,
       fontSize: 12,
       fontFamily: "Poppins_400Regular",
     },
