@@ -6,6 +6,7 @@ import { Card } from "../../components/Card"
 import Icon from "../../components/Icon"
 import RecentDrawCard from "../../components/RecentDrawCard"
 import Row from "../../components/Row"
+import { useTheme } from "../../theme"
 import { SvgIcons } from "../../types/SvgIcons"
 
 interface data {
@@ -18,7 +19,43 @@ interface recentCardData {
   title: string
   date: string
 }
+
 export default function HomeScreen() {
+  const theme = useTheme()
+  const styles = StyleSheet.create({
+    container: {
+      backgroundColor: theme.colors.primary3,
+      alignItems: "center",
+    },
+    headerText: {
+      color: theme.colors.primary1,
+      fontSize: 36,
+      alignSelf: "flex-start",
+      fontFamily: "Poppins_400Regular",
+    },
+    text: {
+      color: theme.colors.primary1,
+      fontSize: 21,
+      alignSelf: "flex-start",
+      paddingBottom: 15,
+      fontFamily: "Poppins_400Regular",
+    },
+    recentContainer: {
+      height: "70%",
+      justifyContent: "flex-start",
+      width: "80%",
+      paddingTop: 20,
+      paddingBottom: 225,
+    },
+    activeContainer: {
+      height: "100%",
+      justifyContent: "flex-start",
+      width: "100%",
+      paddingVertical: 10,
+      paddingLeft: 32,
+      flex: 1,
+    },
+  })
   const DATA: data[] = [
     {
       title: "test 1",
@@ -112,37 +149,3 @@ export default function HomeScreen() {
     </View>
   )
 }
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "rgba(8, 14, 33, 0.96)",
-    alignItems: "center",
-  },
-  headerText: {
-    color: "white",
-    fontSize: 36,
-    alignSelf: "flex-start",
-    fontFamily: "Poppins_400Regular",
-  },
-  text: {
-    color: "white",
-    fontSize: 21,
-    alignSelf: "flex-start",
-    paddingBottom: 15,
-    fontFamily: "Poppins_400Regular",
-  },
-  recentContainer: {
-    height: "70%",
-    justifyContent: "flex-start",
-    width: "80%",
-    paddingTop: 20,
-    paddingBottom: 175,
-  },
-  activeContainer: {
-    height: "100%",
-    justifyContent: "flex-start",
-    width: "100%",
-    paddingVertical: 10,
-    paddingLeft: 32,
-    // flex: 1,
-  },
-})

@@ -12,4 +12,5 @@ export interface SvgIcons {
   sun: string
   setting: string
   union: string
+  add: string
 }

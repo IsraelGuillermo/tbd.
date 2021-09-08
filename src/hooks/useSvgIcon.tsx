@@ -63,4 +63,9 @@ export const useSvgIcons = (): SvgIcons => ({
   union: `<svg width="4" height="20" viewBox="0 0 4 20" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M-8.74228e-08 2C-1.35705e-07 3.10457 0.89543 4 2 4C3.10457 4 4 3.10457 4 2C4 0.895431 3.10457 -3.91405e-08 2 -8.74228e-08C0.895431 -1.35705e-07 -3.91405e-08 0.89543 -8.74228e-08 2ZM2 12C0.89543 12 -4.85396e-07 11.1046 -4.37114e-07 10C-3.88832e-07 8.89543 0.89543 8 2 8C3.10457 8 4 8.89543 4 10C4 11.1046 3.10457 12 2 12ZM2 20C0.89543 20 -8.35087e-07 19.1046 -7.86805e-07 18C-7.38523e-07 16.8954 0.89543 16 2 16C3.10457 16 4 16.8954 4 18C4 19.1046 3.10457 20 2 20Z" fill="white"/>
   </svg>`,
+  add: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <line x1="12" y1="7" x2="12" y2="17" stroke="#9CACB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="17" y1="12" x2="7" y2="12" stroke="#9CACB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="12" cy="12" r="11" stroke="#9CACB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
 })
