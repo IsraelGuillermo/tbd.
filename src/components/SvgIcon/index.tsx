@@ -8,6 +8,7 @@ interface Props {
   width?: number
   variant: keyof SvgIcons
   size?: number
+  color?: string
 }
 
 export default function SvgIcon({ height, width, variant, size = 16 }: Props) {

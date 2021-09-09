@@ -41,11 +41,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@expo-google-fonts/dev": "^0.2.0",
+    "@expo-google-fonts/poppins": "^0.2.0",
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^5.9.8",
     "@react-navigation/stack": "^5.14.2",
     "expo": "40.0.1",
-    "expo-app-loading": "1.0.1",
+    "expo-app-loading": "^1.0.1",
+    "expo-font": "~8.4.0",
     "expo-splash-screen": "0.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

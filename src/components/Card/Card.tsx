@@ -1,64 +1,65 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { SvgIcons } from "../../types/SvgIcons"
+import Row from "../Row"
 import SvgIcon from "../SvgIcon"
 
 interface Props {
   title: string
   icon: keyof SvgIcons
-  width: string
+  width: string | number
   backgroundColor: string
 }
 
 export function Card({ title, icon, width, backgroundColor }: Props) {
   const styles = StyleSheet.create({
-    row: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignContent: "center",
-    },
     container: {
       borderRadius: 16,
       backgroundColor: backgroundColor,
-      height: 170,
+      height: 150,
       width,
-      padding: 15,
+      marginHorizontal: 12,
+      marginVertical: 12,
     },
     title: {
       color: "white",
       fontSize: 14,
     },
+    headerRow: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
   })
   return (
-    <>
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <View style={[styles.row, { width: 120 }]}>
+    <View style={styles.container}>
+      <View style={{ padding: 20, height: "80%" }}>
+        <Row style={{ justifyContent: "space-between" }}>
+          <Row style={styles.headerRow}>
             <SvgIcon variant={icon} />
-            <Text style={styles.title}>{title}</Text>
-          </View>
+            <Text style={[styles.title, { paddingLeft: 10 }]}>{title}</Text>
+          </Row>
           <SvgIcon variant="ellipsis" />
-        </View>
-        <View
+        </Row>
+      </View>
+      <Row
+        style={{
+          width: "100%",
+          height: "20%",
+          backgroundColor: "#2D344B",
+          borderBottomEndRadius: 16,
+          borderBottomStartRadius: 16,
+          justifyContent: "center",
+          alignSelf: "center",
+        }}
+      >
+        <Text
           style={{
-            height: 32,
-            width: "108.75%",
-            backgroundColor: "#2D344B",
-            position: "absolute",
-            top: 150,
-            borderBottomEndRadius: 16,
-            borderBottomStartRadius: 16,
+            color: "white",
           }}
         >
-          <Text
-            style={{
-              color: "white",
-            }}
-          >
-            DRAW SLIP
-          </Text>
-        </View>
-      </View>
-    </>
+          DRAW SLIP
+        </Text>
+      </Row>
+    </View>
   )
 }
