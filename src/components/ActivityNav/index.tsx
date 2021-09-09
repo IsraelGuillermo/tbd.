@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { useTheme } from "../../theme"
+import SvgIcon from "../SvgIcon"
 
 export default function ActivityNav() {
   const theme = useTheme()
@@ -32,14 +33,17 @@ export default function ActivityNav() {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
+          <SvgIcon variant={"dollar"}/>
         <Text style={styles.headerText}>Coin Flip</Text>
         <Text style={styles.text}>Single-Use</Text>
       </View>
       <View style={styles.container}>
+      <SvgIcon variant={"baseballCap"}/>
         <Text style={styles.headerText}>Coin Flip</Text>
         <Text style={styles.text}>Single-Use</Text>
       </View>
       <View style={styles.container}>
+      <SvgIcon variant={"jars"}/>
         <Text style={styles.headerText}>Coin Flip</Text>
         <Text style={styles.text}>Single-Use</Text>
       </View>
