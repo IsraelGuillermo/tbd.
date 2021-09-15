@@ -1,5 +1,1 @@
-import "./Welcome"
-import "../../src/components/App/stories"
-import "../../src/components/Counter/stories"
-import "../../src/components/Container/stories"
-import "../../src/components/Card/Card.stories"
+import "../components/ActivityNav/stories"

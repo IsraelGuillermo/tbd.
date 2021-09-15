@@ -26,6 +26,7 @@ export default function HomeScreen() {
     container: {
       backgroundColor: theme.colors.primary3,
       alignItems: "center",
+      flex: 1,
     },
     headerText: {
       color: theme.colors.primary1,
@@ -45,7 +46,7 @@ export default function HomeScreen() {
       justifyContent: "flex-start",
       width: "80%",
       paddingTop: 20,
-      paddingBottom: 225,
+      flex: 1,
     },
     activeContainer: {
       height: "100%",
@@ -99,53 +100,58 @@ export default function HomeScreen() {
     return <AppLoading />
   }
   return (
-    <View style={styles.container}>
-      <Row
-        style={{
-          paddingHorizontal: 32,
-          paddingTop: 68,
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        <Text style={[styles.headerText]}>Dashboard</Text>
-        <Icon iconName="setting" />
-      </Row>
-      <Row>
-        <View style={styles.activeContainer}>
-          <Text style={styles.text}>Active Jars</Text>
-        </View>
-      </Row>
-      <Row>
-        <View>
+    <>
+      <View style={styles.container}>
+        <Row
+          style={{
+            paddingHorizontal: 32,
+            paddingTop: 68,
+            width: "100%",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text style={[styles.headerText]}>Dashboard</Text>
+          <Icon iconName="setting" />
+        </Row>
+        <Row>
+          <View style={styles.activeContainer}>
+            <Text style={styles.text}>Active Jars</Text>
+          </View>
+        </Row>
+        <Row>
+          <View>
+            <FlatList
+              keyExtractor={({ title }) => `${title}-item`}
+              contentContainerStyle={{
+                paddingLeft: 32,
+              }}
+              data={DATA}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              renderItem={({ item }) => (
+                <Card
+                  backgroundColor={item.backgroundColor}
+                  title={item.title}
+                  icon={item.icon}
+                  width={250}
+                />
+              )}
+            />
+          </View>
+        </Row>
+
+        <View style={styles.recentContainer}>
+          <Text style={styles.text}>Recent Draws</Text>
           <FlatList
-            contentContainerStyle={{
-              paddingLeft: 32,
-            }}
-            data={DATA}
-            horizontal
-            showsHorizontalScrollIndicator={false}
+            keyExtractor={({ title }) => `${title}-item`}
+            data={recentCardData}
+            showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
-              <Card
-                backgroundColor={item.backgroundColor}
-                title={item.title}
-                icon={item.icon}
-                width={250}
-              />
+              <RecentDrawCard title={item.title} date={item.date} />
             )}
           />
         </View>
-      </Row>
-
-      <View style={styles.recentContainer}>
-        <Text style={styles.text}>Recent Draws</Text>
-        <FlatList
-          data={recentCardData}
-          renderItem={({ item }) => (
-            <RecentDrawCard title={item.title} date={item.date} />
-          )}
-        />
       </View>
-    </View>
+    </>
   )
 }

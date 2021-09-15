@@ -13,4 +13,8 @@ export interface SvgIcons {
   setting: string
   union: string
   add: string
+  baseballCap: string
+  dollar: string
+  activityJar: string
+  video: string
 }
