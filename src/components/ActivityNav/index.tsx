@@ -1,9 +1,23 @@
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { Modal, StyleSheet, Text, TouchableHighlight, View } from "react-native"
 import { useTheme } from "../../theme"
 import SvgIcon from "../SvgIcon"
 
-export default function ActivityNav() {
+interface Props {
+  goToCoinFlip?: () => void
+  goToHatDraw?: () => void
+  goToJarDraw?: () => void
+  onPress: () => void
+  visible: boolean
+}
+
+export default function ActivityNav({
+  goToCoinFlip,
+  goToHatDraw,
+  goToJarDraw,
+  onPress,
+  visible,
+}: Props) {
   const theme = useTheme()
   const styles = StyleSheet.create({
     mainContainer: {
@@ -18,8 +32,10 @@ export default function ActivityNav() {
     container: {
       height: 88,
       width: 104,
-      justifyContent: "center",
+      justifyContent: "space-evenly",
       alignItems: "center",
+      paddingHorizontal: 16,
+      paddingVertical: 8,
     },
     headerText: {
       color: theme.colors.primary1,
@@ -29,24 +45,52 @@ export default function ActivityNav() {
       color: theme.colors.primary1,
       fontSize: 11,
     },
+    line: {
+      width: 1,
+      height: 88,
+      borderWidth: 1,
+      borderColor: theme.colors.primary5,
+    },
+    background: {
+      backgroundColor: "rgba(0,0,0,0.5)",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      justifyContent: "center",
+      alignItems: "center",
+    },
   })
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.container}>
-          <SvgIcon variant={"dollar"}/>
-        <Text style={styles.headerText}>Coin Flip</Text>
-        <Text style={styles.text}>Single-Use</Text>
+    <Modal animationType="fade" transparent visible={visible}>
+      <View style={styles.background} onTouchStart={onPress}>
+        <View style={styles.mainContainer}>
+          <TouchableHighlight onPress={goToCoinFlip}>
+            <View style={styles.container}>
+              <SvgIcon variant={"dollar"} />
+              <Text style={styles.headerText}>Coin Flip</Text>
+              <Text style={styles.text}>Single-Use</Text>
+            </View>
+          </TouchableHighlight>
+          <View style={styles.line} />
+          <TouchableHighlight onPress={goToHatDraw}>
+            <View style={styles.container}>
+              <SvgIcon variant={"baseballCap"} />
+              <Text style={styles.headerText}>Hat Draw</Text>
+              <Text style={styles.text}>Single-Use</Text>
+            </View>
+          </TouchableHighlight>
+          <View style={styles.line} />
+          <TouchableHighlight onPress={goToJarDraw}>
+            <View style={styles.container}>
+              <SvgIcon variant={"activityJar"} />
+              <Text style={styles.headerText}>Jar Draw</Text>
+              <Text style={styles.text}>Multi-Use</Text>
+            </View>
+          </TouchableHighlight>
+        </View>
       </View>
-      <View style={styles.container}>
-      <SvgIcon variant={"baseballCap"}/>
-        <Text style={styles.headerText}>Coin Flip</Text>
-        <Text style={styles.text}>Single-Use</Text>
-      </View>
-      <View style={styles.container}>
-      <SvgIcon variant={"jars"}/>
-        <Text style={styles.headerText}>Coin Flip</Text>
-        <Text style={styles.text}>Single-Use</Text>
-      </View>
-    </View>
+    </Modal>
   )
 }

@@ -2,7 +2,6 @@ import { Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins"
 import { AppLoading } from "expo"
 import React from "react"
 import { FlatList, StyleSheet, Text, View } from "react-native"
-import ActivityNav from "../../components/ActivityNav"
 import { Card } from "../../components/Card"
 import Icon from "../../components/Icon"
 import RecentDrawCard from "../../components/RecentDrawCard"
@@ -27,6 +26,7 @@ export default function HomeScreen() {
     container: {
       backgroundColor: theme.colors.primary3,
       alignItems: "center",
+      flex: 1,
     },
     headerText: {
       color: theme.colors.primary1,
@@ -46,7 +46,7 @@ export default function HomeScreen() {
       justifyContent: "flex-start",
       width: "80%",
       paddingTop: 20,
-      paddingBottom: 225,
+      flex: 1,
     },
     activeContainer: {
       height: "100%",
@@ -118,10 +118,10 @@ export default function HomeScreen() {
             <Text style={styles.text}>Active Jars</Text>
           </View>
         </Row>
-        <ActivityNav />
         <Row>
           <View>
             <FlatList
+              keyExtractor={({ title }) => `${title}-item`}
               contentContainerStyle={{
                 paddingLeft: 32,
               }}
@@ -143,7 +143,9 @@ export default function HomeScreen() {
         <View style={styles.recentContainer}>
           <Text style={styles.text}>Recent Draws</Text>
           <FlatList
+            keyExtractor={({ title }) => `${title}-item`}
             data={recentCardData}
+            showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
               <RecentDrawCard title={item.title} date={item.date} />
             )}

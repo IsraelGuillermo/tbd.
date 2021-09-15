@@ -15,4 +15,6 @@ export interface SvgIcons {
   add: string
   baseballCap: string
   dollar: string
+  activityJar: string
+  video: string
 }
