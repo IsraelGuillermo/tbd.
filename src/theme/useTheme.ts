@@ -16,6 +16,17 @@ const colors: Colors = {
 
 const theme: Theme = {
   colors,
+  fonts: {
+    HattonLight: "HattonLight",
+    HattonRegular: "HattonRegular",
+    HattonSemiBold: "HattonSemiBold",
+    KarlaRegular: "KarlaRegular",
+    KarlaBold: "KarlaBold",
+    KarlaBoldItalic: "KarlaBoldItalic",
+    KarlaItalic: "KarlaItalic",
+    KwotIcons: "KwotIcons",
+    AdditionalIcons: "AdditionalIcons",
+  },
 }
 
 function useTheme() {

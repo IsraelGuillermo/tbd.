@@ -1,7 +1,7 @@
 import { render, waitFor } from "@testing-library/react-native"
 import React from "react"
 import { Text } from "react-native"
-import { Container } from "."
+import { CacheContainer } from "."
 
 describe("Container", () => {
   it("renders", async () => {
@@ -10,9 +10,9 @@ describe("Container", () => {
 
     // Act
     const { getByText, queryByText } = render(
-      <Container>
+      <CacheContainer>
         <Text>{text}</Text>
-      </Container>,
+      </CacheContainer>,
     )
     await waitFor(() => queryByText(text))
     const received = getByText(text)

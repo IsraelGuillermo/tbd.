@@ -6,7 +6,7 @@ import * as SplashScreen from "expo-splash-screen"
 import React, { ReactNode, useState } from "react"
 import { Image, SafeAreaView, StyleSheet } from "react-native"
 
-export function Container({ children }: { children: ReactNode }) {
+export function CacheContainer({ children }: { children: ReactNode }) {
   const [isReady, setIsReady] = useState(false)
 
   return !isReady ? (
@@ -41,6 +41,7 @@ async function cacheResources(): Promise<any> {
 
   const fontAssets = cacheFonts([
     // FontAwesome.font
+    { Poppins: require("../../assets/Fonts/Poppins-Black.ttf") },
   ])
 
   await Promise.all([...imageAssets, ...fontAssets] as Promise<unknown>[])
