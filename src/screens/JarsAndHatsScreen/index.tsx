@@ -1,7 +1,8 @@
 import React from "react"
-import { FlatList, StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, View } from "react-native"
 import { Card } from "../../components/Card"
 import Row from "../../components/Row"
+import Typography from "../../components/Typography"
 import { SvgIcons } from "../../types/SvgIcons"
 
 const styles = StyleSheet.create({
@@ -10,10 +11,6 @@ const styles = StyleSheet.create({
     flex: 1,
 
     alignItems: "center",
-  },
-  text: {
-    color: "white",
-    fontSize: 45,
   },
 })
 interface data {
@@ -57,7 +54,7 @@ export default function JarsAndHatsScreen() {
           justifyContent: "space-between",
         }}
       >
-        <Text style={styles.text}>Jars and Hats</Text>
+        <Typography variant={"heading1"}>Jars and Hats</Typography>
       </Row>
       <FlatList
         data={DATA}

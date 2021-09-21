@@ -1,5 +1,5 @@
 import React from "react"
-import { FlatList, StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, View } from "react-native"
 import { Card } from "../../components/Card"
 import Icon from "../../components/Icon"
 import RecentDrawCard from "../../components/RecentDrawCard"
@@ -28,13 +28,6 @@ export default function HomeScreen() {
       flex: 1,
     },
     headerText: {
-      color: theme.colors.primary1,
-      fontSize: 36,
-      alignSelf: "flex-start",
-    },
-    text: {
-      color: theme.colors.primary1,
-      fontSize: 21,
       alignSelf: "flex-start",
       paddingBottom: 15,
     },
@@ -96,6 +89,7 @@ export default function HomeScreen() {
           style={{
             paddingHorizontal: 32,
             paddingTop: 68,
+            paddingBottom: 32,
             width: "100%",
             justifyContent: "space-between",
           }}
@@ -105,7 +99,7 @@ export default function HomeScreen() {
         </Row>
         <Row>
           <View style={styles.activeContainer}>
-            <Text style={styles.text}>Active Jars</Text>
+            <Typography variant={"heading2"}>Active Jars</Typography>
           </View>
         </Row>
         <Row>
@@ -131,7 +125,9 @@ export default function HomeScreen() {
         </Row>
 
         <View style={styles.recentContainer}>
-          <Text style={styles.text}>Recent Draws</Text>
+          <Typography variant={"heading2"} style={styles.headerText}>
+            Recent Draws
+          </Typography>
           <FlatList
             keyExtractor={({ title }) => `${title}-item`}
             data={recentCardData}
