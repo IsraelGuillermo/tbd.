@@ -12,15 +12,7 @@ export interface Colors {
   secondary6: string
 }
 export interface ThemeFonts {
-  HattonLight: "HattonLight"
-  HattonRegular: "HattonRegular"
-  HattonSemiBold: "HattonSemiBold"
-  KarlaRegular: "KarlaRegular"
-  KarlaBold: "KarlaBold"
-  KarlaBoldItalic: "KarlaBoldItalic"
-  KarlaItalic: "KarlaItalic"
-  KwotIcons: "KwotIcons"
-  AdditionalIcons: "AdditionalIcons"
+  Poppins: "Poppins"
 }
 
 export interface Theme {

@@ -3,13 +3,12 @@ import { Text, TextProps, TextStyle } from "react-native"
 import { useTypeStyles } from "../../hooks/useTypedStyles"
 
 export type TypographyKeys =
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "caption1"
-  | "caption2"
+  | "heading1"
+  | "heading2"
+  | "heading3"
+  | "subHeading1"
+  | "subHeading2"
+  | "title"
   | "regular"
 
 interface Props extends TextProps {

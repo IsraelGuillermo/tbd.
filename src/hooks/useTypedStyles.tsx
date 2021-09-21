@@ -5,61 +5,55 @@ export function useTypeStyles() {
   const { colors, fonts } = useTheme()
 
   const typeStyles = StyleSheet.create({
-    h1: {
-      fontFamily: "Poppins",
-      fontWeight: "600",
-      fontSize: 64,
-      lineHeight: 72,
-      color: colors.primary1,
-    },
-    h2: {
-      fontFamily: fonts.HattonRegular,
-      fontWeight: "500",
+    heading1: {
+      fontFamily: fonts.Poppins,
+      fontWeight: "400",
+      fontStyle: "normal",
       fontSize: 24,
-      lineHeight: 30,
+      lineHeight: 36,
       color: colors.primary1,
     },
-    h3: {
-      fontFamily: fonts.KarlaRegular,
-      fontWeight: "normal",
-      fontSize: 18,
+    heading2: {
+      fontFamily: fonts.Poppins,
+      fontWeight: "500",
+      fontSize: 14,
       lineHeight: 21,
       color: colors.primary1,
     },
-    h4: {
-      fontFamily: fonts.KarlaRegular,
-      fontWeight: "normal",
+    heading3: {
+      fontFamily: fonts.Poppins,
+      fontWeight: "400",
       fontSize: 16,
-      lineHeight: 21,
-      textTransform: "uppercase",
+      lineHeight: 24,
       color: colors.primary1,
     },
-    h5: {
-      fontFamily: fonts.KarlaRegular,
-      fontWeight: "normal",
-      fontSize: 16,
-      lineHeight: 16,
+    subHeading1: {
+      fontFamily: fonts.Poppins,
+      fontWeight: "400",
+      fontSize: 10,
+      lineHeight: 12,
       color: colors.primary1,
     },
-    caption1: {
-      fontFamily: fonts.KarlaRegular,
-      fontWeight: "normal",
+    subHeading2: {
+      fontFamily: fonts.Poppins,
+      fontWeight: "400",
+      fontSize: 11,
+      lineHeight: 12,
+      color: colors.primary5,
+    },
+    title: {
+      fontFamily: fonts.Poppins,
+      fontWeight: "400",
       fontSize: 12,
       lineHeight: 12,
-      color: colors.primary2,
-    },
-    caption2: {
-      fontFamily: fonts.KarlaRegular,
-      fontWeight: "normal",
-      fontSize: 8,
-      lineHeight: 11,
-      color: colors.primary2,
+      color: colors.primary1,
     },
     regular: {
-      fontFamily: fonts.KarlaRegular,
-      fontWeight: "normal",
-      fontSize: 16,
-      lineHeight: 21,
+      fontFamily: fonts.Poppins,
+      fontWeight: "400",
+      fontStyle: "normal",
+      fontSize: 24,
+      lineHeight: 36,
       color: colors.primary1,
     },
   })
