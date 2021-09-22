@@ -1,8 +1,9 @@
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import { SvgIcons } from "../../types/SvgIcons"
 import Row from "../Row"
 import SvgIcon from "../SvgIcon"
+import Typography from "../Typography"
 
 interface Props {
   title: string
@@ -21,10 +22,7 @@ export function Card({ title, icon, width, backgroundColor }: Props) {
       marginHorizontal: 12,
       marginVertical: 12,
     },
-    title: {
-      color: "white",
-      fontSize: 14,
-    },
+
     headerRow: {
       justifyContent: "center",
       alignItems: "center",
@@ -36,7 +34,9 @@ export function Card({ title, icon, width, backgroundColor }: Props) {
         <Row style={{ justifyContent: "space-between" }}>
           <Row style={styles.headerRow}>
             <SvgIcon variant={icon} />
-            <Text style={[styles.title, { paddingLeft: 10 }]}>{title}</Text>
+            <Typography variant={"heading2"} style={{ paddingLeft: 10 }}>
+              {title}
+            </Typography>
           </Row>
           <SvgIcon variant="ellipsis" />
         </Row>
@@ -52,13 +52,7 @@ export function Card({ title, icon, width, backgroundColor }: Props) {
           alignSelf: "center",
         }}
       >
-        <Text
-          style={{
-            color: "white",
-          }}
-        >
-          DRAW SLIP
-        </Text>
+        <Typography variant={"subHeading1"}>DRAW SLIP</Typography>
       </Row>
     </View>
   )

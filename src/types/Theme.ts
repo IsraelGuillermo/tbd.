@@ -11,7 +11,11 @@ export interface Colors {
   secondary5: string
   secondary6: string
 }
+export interface ThemeFonts {
+  Poppins: "Poppins"
+}
 
 export interface Theme {
   colors: Colors
+  fonts: ThemeFonts
 }

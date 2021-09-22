@@ -1,11 +1,10 @@
-import { Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins"
-import { AppLoading } from "expo"
 import React from "react"
-import { FlatList, StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, View } from "react-native"
 import { Card } from "../../components/Card"
 import Icon from "../../components/Icon"
 import RecentDrawCard from "../../components/RecentDrawCard"
 import Row from "../../components/Row"
+import Typography from "../../components/Typography"
 import { useTheme } from "../../theme"
 import { SvgIcons } from "../../types/SvgIcons"
 
@@ -29,17 +28,8 @@ export default function HomeScreen() {
       flex: 1,
     },
     headerText: {
-      color: theme.colors.primary1,
-      fontSize: 36,
-      alignSelf: "flex-start",
-      fontFamily: "Poppins_400Regular",
-    },
-    text: {
-      color: theme.colors.primary1,
-      fontSize: 21,
       alignSelf: "flex-start",
       paddingBottom: 15,
-      fontFamily: "Poppins_400Regular",
     },
     recentContainer: {
       height: "70%",
@@ -92,13 +82,6 @@ export default function HomeScreen() {
     { title: "testing 9", date: "08.13.21 | You" },
   ]
 
-  const [fontsLoaded] = useFonts({
-    Poppins_400Regular,
-  })
-
-  if (!fontsLoaded) {
-    return <AppLoading />
-  }
   return (
     <>
       <View style={styles.container}>
@@ -106,16 +89,17 @@ export default function HomeScreen() {
           style={{
             paddingHorizontal: 32,
             paddingTop: 68,
+            paddingBottom: 32,
             width: "100%",
             justifyContent: "space-between",
           }}
         >
-          <Text style={[styles.headerText]}>Dashboard</Text>
+          <Typography variant={"heading1"}>Dashboard</Typography>
           <Icon iconName="setting" />
         </Row>
         <Row>
           <View style={styles.activeContainer}>
-            <Text style={styles.text}>Active Jars</Text>
+            <Typography variant={"heading2"}>Active Jars</Typography>
           </View>
         </Row>
         <Row>
@@ -141,7 +125,9 @@ export default function HomeScreen() {
         </Row>
 
         <View style={styles.recentContainer}>
-          <Text style={styles.text}>Recent Draws</Text>
+          <Typography variant={"heading2"} style={styles.headerText}>
+            Recent Draws
+          </Typography>
           <FlatList
             keyExtractor={({ title }) => `${title}-item`}
             data={recentCardData}

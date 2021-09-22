@@ -4,9 +4,9 @@ import { Asset } from "expo-asset"
 import * as Font from "expo-font"
 import * as SplashScreen from "expo-splash-screen"
 import React, { ReactNode, useState } from "react"
-import { Image, SafeAreaView, StyleSheet } from "react-native"
+import { Image } from "react-native"
 
-export function Container({ children }: { children: ReactNode }) {
+export function CacheContainer({ children }: { children: ReactNode }) {
   const [isReady, setIsReady] = useState(false)
 
   return !isReady ? (
@@ -20,18 +20,9 @@ export function Container({ children }: { children: ReactNode }) {
       autoHideSplash={false}
     />
   ) : (
-    <SafeAreaView style={styles.container}>{children}</SafeAreaView>
+    <>{children}</>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-})
 
 async function cacheResources(): Promise<any> {
   const imageAssets = cacheImages([
@@ -41,6 +32,7 @@ async function cacheResources(): Promise<any> {
 
   const fontAssets = cacheFonts([
     // FontAwesome.font
+    { Poppins: require("../../assets/Fonts/Poppins-Regular.ttf") },
   ])
 
   await Promise.all([...imageAssets, ...fontAssets] as Promise<unknown>[])

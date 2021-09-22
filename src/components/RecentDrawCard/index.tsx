@@ -1,10 +1,8 @@
-import { Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins"
-import AppLoading from "expo-app-loading"
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
-import { useTheme } from "../../theme"
+import { StyleSheet, View } from "react-native"
 import Icon from "../Icon"
 import Row from "../Row"
+import Typography from "../Typography"
 
 interface Props {
   title: string
@@ -12,11 +10,6 @@ interface Props {
 }
 
 export default function RecentDrawCard({ date, title }: Props) {
-  const [fontsLoaded] = useFonts({
-    Poppins_400Regular,
-  })
-
-  const theme = useTheme()
   const styles = StyleSheet.create({
     card: {
       height: 65,
@@ -25,22 +18,8 @@ export default function RecentDrawCard({ date, title }: Props) {
       borderBottomColor: "rgba(255, 255, 255, 0.23)",
       borderBottomWidth: 1,
     },
-    cardHeader: {
-      color: theme.colors.primary1,
-      fontSize: 12,
-      fontFamily: "Poppins_400Regular",
-    },
-    date: {
-      fontSize: 11,
-      color: "rgba(255, 255, 255, 0.23)",
-      paddingTop: 6,
-      fontFamily: "Poppins_400Regular",
-    },
   })
 
-  if (!fontsLoaded) {
-    return <AppLoading />
-  }
   return (
     <View style={styles.card}>
       <Row style={{ justifyContent: "space-between" }}>
@@ -55,8 +34,10 @@ export default function RecentDrawCard({ date, title }: Props) {
               height: "100%",
             }}
           >
-            <Text style={styles.cardHeader}>{title}</Text>
-            <Text style={styles.date}>{date}</Text>
+            <Typography variant={"title"}>{title}</Typography>
+            <Typography variant={"subHeading2"} style={{ paddingTop: 6 }}>
+              {date}
+            </Typography>
           </View>
         </Row>
 

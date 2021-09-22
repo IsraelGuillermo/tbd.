@@ -16,6 +16,9 @@ const colors: Colors = {
 
 const theme: Theme = {
   colors,
+  fonts: {
+    Poppins: "Poppins",
+  },
 }
 
 function useTheme() {
