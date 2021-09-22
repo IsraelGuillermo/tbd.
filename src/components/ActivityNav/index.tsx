@@ -1,3 +1,4 @@
+// import { useNavigation } from "@react-navigation/native"
 import React from "react"
 import { Modal, StyleSheet, Text, TouchableHighlight, View } from "react-native"
 import { useTheme } from "../../theme"
@@ -57,12 +58,18 @@ export default function ActivityNav({ onPress, visible }: Props) {
       alignItems: "center",
     },
   })
+
+  // const navigation = useNavigation()
+  function goToCoinFlip() {
+    console.log("clicked")
+    // navigation.navigate("CoinScreen", { screen: "CoinScreen" })
+  }
   return (
     <Modal animationType="fade" transparent visible={visible}>
       <View style={styles.background} onTouchStart={onPress}>
         <View style={styles.centered}>
           <View style={styles.mainContainer}>
-            <TouchableHighlight>
+            <TouchableHighlight onPress={goToCoinFlip}>
               <View style={styles.container}>
                 <SvgIcon variant={"dollar"} />
                 <Text style={styles.headerText}>Coin Flip</Text>
@@ -70,7 +77,7 @@ export default function ActivityNav({ onPress, visible }: Props) {
               </View>
             </TouchableHighlight>
             <View style={styles.line} />
-            <TouchableHighlight>
+            <TouchableHighlight onPress={goToCoinFlip}>
               <View style={styles.container}>
                 <SvgIcon variant={"baseballCap"} />
                 <Text style={styles.headerText}>Hat Draw</Text>
@@ -78,7 +85,7 @@ export default function ActivityNav({ onPress, visible }: Props) {
               </View>
             </TouchableHighlight>
             <View style={styles.line} />
-            <TouchableHighlight>
+            <TouchableHighlight onPress={goToCoinFlip}>
               <View style={styles.container}>
                 <SvgIcon variant={"activityJar"} />
                 <Text style={styles.headerText}>Jar Draw</Text>
