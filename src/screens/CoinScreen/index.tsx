@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native"
 import React from "react"
 import { Button, StyleSheet, View } from "react-native"
 import Row from "../../components/Row"
+import SvgIcon from "../../components/SvgIcon"
 import Typography from "../../components/Typography"
 import { useTheme } from "../../theme"
 
@@ -36,8 +37,6 @@ export default function CoinScreen() {
     },
     coinBox: {
       height: "85%",
-      borderColor: "red",
-      borderWidth: 1,
       width: "100%",
     },
   })
@@ -46,7 +45,10 @@ export default function CoinScreen() {
       <View style={styles.header}>
         <Row style={{ justifyContent: "space-evenly" }}>
           <View style={styles.outerBox}>
-            <Button title="Go back" onPress={() => navigation.goBack()} />
+            <SvgIcon
+              variant={"backArrow"}
+              onPress={() => navigation.goBack()}
+            />
           </View>
           <View style={styles.centerBox}>
             <Typography variant={"heading1"}>Flip a Coin</Typography>

@@ -9,11 +9,23 @@ interface Props {
   variant: keyof SvgIcons
   size?: number
   color?: string
+  onPress?: () => void
 }
 
-export default function SvgIcon({ height, width, variant, size = 16 }: Props) {
+export default function SvgIcon({
+  height,
+  width,
+  variant,
+  size = 16,
+  onPress,
+}: Props) {
   const icon = useSvgIcons()
   return (
-    <SvgXml xml={icon[variant]} width={width ?? size} height={height ?? size} />
+    <SvgXml
+      xml={icon[variant]}
+      width={width ?? size}
+      height={height ?? size}
+      onPress={onPress}
+    />
   )
 }
