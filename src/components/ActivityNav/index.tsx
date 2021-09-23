@@ -78,7 +78,7 @@ export default function ActivityNav({ onPress, visible }: Props) {
             </View>
           </TouchableHighlight>
           <View style={styles.line} />
-          <TouchableHighlight onPress={goToCoinFlip}>
+          <TouchableHighlight>
             <View style={styles.container}>
               <SvgIcon variant={"baseballCap"} />
               <Text style={styles.headerText}>Hat Draw</Text>
@@ -86,7 +86,7 @@ export default function ActivityNav({ onPress, visible }: Props) {
             </View>
           </TouchableHighlight>
           <View style={styles.line} />
-          <TouchableHighlight onPress={goToCoinFlip}>
+          <TouchableHighlight>
             <View style={styles.container}>
               <SvgIcon variant={"activityJar"} />
               <Text style={styles.headerText}>Jar Draw</Text>
