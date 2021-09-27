@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Animated, Button, StyleSheet, View } from "react-native"
 import Row from "../../components/Row"
 import SvgIcon from "../../components/SvgIcon"
@@ -129,7 +129,6 @@ export default function CoinScreen() {
           title={"Flip"}
           onPress={() => {
             handleAnimation()
-
             setTimeout(() => {
               setTurns(Math.random())
             }, 500)
