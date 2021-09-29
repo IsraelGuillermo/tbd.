@@ -102,4 +102,7 @@ export const useSvgIcons = (): SvgIcons => ({
   <circle cx="12" cy="12" r="11" stroke="#9CACB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   `,
+  backArrow: `<svg width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 1L1 10L10 19" stroke="#A1A1A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
 })

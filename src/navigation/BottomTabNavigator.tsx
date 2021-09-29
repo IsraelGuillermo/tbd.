@@ -71,7 +71,10 @@ const Tabs = () => {
           }}
         />
       </Tab.Navigator>
-      <ActivityNav visible={showModal} onPress={() => setShowModal(false)} />
+      <ActivityNav
+        visible={showModal}
+        onPress={() => setShowModal(!showModal)}
+      />
     </>
   )
 }

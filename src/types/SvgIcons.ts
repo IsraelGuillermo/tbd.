@@ -17,4 +17,5 @@ export interface SvgIcons {
   dollar: string
   activityJar: string
   video: string
+  backArrow: string
 }
