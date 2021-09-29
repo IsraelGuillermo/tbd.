@@ -41,12 +41,7 @@ export default function CoinScreen() {
       alignContent: "center",
       justifyContent: "center",
     },
-    coin: {
-      width: 100,
-      height: 100,
-      position: "relative",
-      //   backfaceVisibility: "hidden",
-    },
+
     heads: {
       width: 100,
       height: 100,
@@ -54,13 +49,9 @@ export default function CoinScreen() {
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "red",
-      position: "absolute",
-      //   transform: [{ rotateY: "180deg" }],
-      //   flex: 1,
       backfaceVisibility: "hidden",
     },
     tails: {
-      position: "absolute",
       width: 100,
       height: 100,
       borderRadius: 50,
@@ -68,34 +59,68 @@ export default function CoinScreen() {
       alignItems: "center",
       backgroundColor: "blue",
       backfaceVisibility: "hidden",
-      zIndex: 100,
-      //   flex: 1,
+      position: "absolute",
+      top: 0,
     },
   })
-  const [rotateAnimation] = useState(new Animated.Value(0))
+  const [flipValue] = useState(new Animated.Value(0))
 
-  const handleAnimation = () => {
-    Animated.timing(rotateAnimation, {
-      toValue: 1,
-      duration: 800,
-      useNativeDriver: true,
-    }).start(() => {
-      rotateAnimation.setValue(0)
-    })
-  }
-  const [turns, setTurns] = useState(0)
+  const [isFlipped, setIsFlipped] = useState(false)
 
-  const interpolateRotating = rotateAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", `1440deg`],
+  const interpolateFront = flipValue.interpolate({
+    inputRange: [0, 180],
+    outputRange: ["0deg", `1260deg`],
   })
-  const animatedStyle = {
-    transform: [
-      {
-        rotateY: interpolateRotating,
-      },
-    ],
+  const interpolateBack = flipValue.interpolate({
+    inputRange: [0, 180],
+    outputRange: ["180deg", "1440deg"],
+  })
+  const [face, setFace] = useState("")
+  const rando = Math.random()
+  function handleTouch() {
+    let rotationConfig = {
+      friction: 10,
+      tension: 20,
+      useNativeDriver: true,
+      toValue: 0,
+    }
+
+    if (rando > 0.5) {
+      rotationConfig = {
+        ...rotationConfig,
+        toValue: 0,
+      }
+      setFace("heads")
+    } else {
+      rotationConfig = {
+        ...rotationConfig,
+        toValue: 180,
+      }
+      setFace("tails")
+    }
+    Animated.spring(flipValue, rotationConfig).start()
+    setIsFlipped(!isFlipped)
+
+    // console.log(isFlipped)
   }
+  console.log(face)
+  const frontStyle = {
+    transform: [{ rotateY: interpolateFront }],
+  }
+  const backStyle = {
+    transform: [{ rotateY: interpolateBack }],
+  }
+  //   const turn = {
+  //     transform: [
+  //       {
+  //         rotateY: flipValue.interpolate({
+  //           inputRange: [0, 180],
+  //           outputRange: ["1800deg", `1440deg`],
+  //         }),
+  //       },
+  //     ],
+  //   }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -112,28 +137,16 @@ export default function CoinScreen() {
           <View style={styles.outerBox} />
         </Row>
       </View>
-      <View style={styles.coinBox}>
-        <Animated.View style={[animatedStyle, styles.coin]}>
-          {turns > 0.5 ? (
-            <View style={styles.heads}>
-              <Typography variant={"heading1"}>Heads</Typography>
-            </View>
-          ) : (
-            <View style={styles.tails}>
-              <Typography variant={"heading1"}>Tails</Typography>
-            </View>
-          )}
-        </Animated.View>
-
-        <Button
-          title={"Flip"}
-          onPress={() => {
-            handleAnimation()
-            setTimeout(() => {
-              setTurns(Math.random())
-            }, 500)
-          }}
-        />
+      <Button title={"Flip"} onPress={handleTouch} />
+      <View>
+        <>
+          <Animated.View style={[styles.heads, frontStyle]}>
+            <Typography variant={"heading1"}>Heads</Typography>
+          </Animated.View>
+          <Animated.View style={[styles.tails, backStyle]}>
+            <Typography variant={"heading1"}>Tails</Typography>
+          </Animated.View>
+        </>
       </View>
     </View>
   )
