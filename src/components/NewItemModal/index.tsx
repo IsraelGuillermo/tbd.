@@ -26,49 +26,46 @@ export function NewItemModal({ title }: Props) {
       justifyContent: "center",
       alignItems: "center",
     },
+    exit: {
+      alignItems: "center",
+      justifyContent: "flex-end",
+      height: "10%",
+      paddingTop: 10,
+      paddingRight: 10,
+    },
+    icon: {
+      alignItems: "center",
+      justifyContent: "center",
+      height: "10%",
+    },
+    drawSlip: {
+      width: "100%",
+      height: "25%",
+      backgroundColor: "#2D344B",
+      borderBottomEndRadius: 16,
+      borderBottomStartRadius: 16,
+      justifyContent: "center",
+      alignSelf: "center",
+    },
   })
   return (
     <>
       <View style={styles.container}>
-        <Row
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: "10%",
-          }}
-        >
-          <Icon iconName="film" backgroundColor="red" />
+        <Row style={styles.icon}>
+          <Icon iconName="film" backgroundColor="#EB5757" size={48} />
         </Row>
-        <Row
-          style={{
-            alignItems: "center",
-            justifyContent: "flex-end",
-            height: "10%",
-            paddingTop: 10,
-            paddingRight: 10,
-          }}
-        >
+        <Row style={styles.exit}>
           <SvgIcon variant="exit" size={17} />
         </Row>
         <View style={[styles.headerRow, { padding: 20, height: "65%" }]}>
           <Row>
-            <Typography variant={"heading3"}>{title}</Typography>
+            <Typography variant={"heading3"}>{`"${title}"`}</Typography>
           </Row>
           <Row>
             <Typography variant={"heading3"}>Has been Added!</Typography>
           </Row>
         </View>
-        <Row
-          style={{
-            width: "100%",
-            height: "25%",
-            backgroundColor: "#2D344B",
-            borderBottomEndRadius: 16,
-            borderBottomStartRadius: 16,
-            justifyContent: "center",
-            alignSelf: "center",
-          }}
-        >
+        <Row style={styles.drawSlip}>
           <Typography variant={"subHeading1"}>DRAW SLIP</Typography>
         </Row>
       </View>
