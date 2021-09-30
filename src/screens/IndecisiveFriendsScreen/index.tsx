@@ -1,5 +1,6 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
+import { NewItemModal } from "../../components/NewItemModal"
 
 const styles = StyleSheet.create({
   container: {
@@ -17,6 +18,7 @@ export default function IndecisiveFriendsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Indecisive Friends</Text>
+      <NewItemModal title="Movies" />
     </View>
   )
 }
