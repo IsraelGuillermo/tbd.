@@ -9,9 +9,10 @@ import Typography from "../Typography"
 interface Props {
   title: string
   icon?: keyof SvgIcons
+  onPress?: () => void
 }
 
-export function NewItemModal({ title }: Props) {
+export function NewItemModal({ title, onPress, icon }: Props) {
   const styles = StyleSheet.create({
     container: {
       borderRadius: 16,
@@ -52,10 +53,14 @@ export function NewItemModal({ title }: Props) {
     <>
       <View style={styles.container}>
         <Row style={styles.icon}>
-          <Icon iconName="film" backgroundColor="#EB5757" size={48} />
+          <Icon
+            iconName={icon || "activityJar"}
+            backgroundColor="#EB5757"
+            size={48}
+          />
         </Row>
         <Row style={styles.exit}>
-          <SvgIcon variant="exit" size={17} />
+          <SvgIcon variant="exit" size={17} onPress={onPress} />
         </Row>
         <View style={[styles.headerRow, { padding: 20, height: "65%" }]}>
           <Row>

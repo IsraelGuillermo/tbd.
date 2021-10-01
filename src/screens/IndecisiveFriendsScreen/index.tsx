@@ -18,7 +18,7 @@ export default function IndecisiveFriendsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Indecisive Friends</Text>
-      <NewItemModal title="Movies" />
+      <NewItemModal title="Movies" icon={"film"} />
     </View>
   )
 }
