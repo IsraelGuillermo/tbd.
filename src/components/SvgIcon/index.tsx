@@ -4,18 +4,18 @@ import { useSvgIcons } from "../../hooks/useSvgIcon"
 import { SvgIcons } from "../../types/SvgIcons"
 
 interface Props {
+  variant: keyof SvgIcons
   height?: number
   width?: number
-  variant: keyof SvgIcons
   size?: number
   color?: string
   onPress?: () => void
 }
 
 export default function SvgIcon({
+  variant,
   height,
   width,
-  variant,
   size = 16,
   onPress,
 }: Props) {

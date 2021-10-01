@@ -18,4 +18,5 @@ export interface SvgIcons {
   activityJar: string
   video: string
   backArrow: string
+  exit: string
 }
