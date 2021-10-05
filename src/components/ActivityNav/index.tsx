@@ -64,6 +64,10 @@ export default function ActivityNav({ onPress, visible }: Props) {
     navigation.navigate("CoinScreen")
     onPress()
   }
+  function goToAddJar() {
+    navigation.navigate("AddJarScreen")
+    onPress()
+  }
   return (
     <Modal animationType="fade" transparent visible={visible}>
       <View style={styles.centered}>
@@ -86,7 +90,7 @@ export default function ActivityNav({ onPress, visible }: Props) {
             </View>
           </TouchableHighlight>
           <View style={styles.line} />
-          <TouchableHighlight>
+          <TouchableHighlight onPress={goToAddJar}>
             <View style={styles.container}>
               <SvgIcon variant={"activityJar"} />
               <Text style={styles.headerText}>Jar Draw</Text>

@@ -110,4 +110,19 @@ export const useSvgIcons = (): SvgIcons => ({
   <path d="M4.25 12.75L12.75 4.4279" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   `,
+  return: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1.16669 4.66675V11.6667H8.16669" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M4.09502 17.5001C4.85148 19.6472 6.28525 21.4903 8.18029 22.7517C10.0753 24.0131 12.329 24.6245 14.6017 24.4937C16.8744 24.3628 19.043 23.497 20.7808 22.0265C22.5186 20.556 23.7315 18.5606 24.2366 16.3409C24.7417 14.1211 24.5118 11.7974 23.5814 9.71972C22.651 7.64205 21.0706 5.92303 19.0783 4.82166C17.086 3.72029 14.7897 3.29624 12.5355 3.61341C10.2812 3.93057 8.19109 4.97176 6.58002 6.5801L1.16669 11.6668" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
+  slash: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 25.6666C20.4433 25.6666 25.6666 20.4432 25.6666 13.9999C25.6666 7.5566 20.4433 2.33325 14 2.33325C7.55666 2.33325 2.33331 7.5566 2.33331 13.9999C2.33331 20.4432 7.55666 25.6666 14 25.6666Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M5.75165 5.75171L22.2483 22.2484" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
+  edit: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 23.3333H24.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19.25 4.08327C19.7141 3.61914 20.3436 3.3584 21 3.3584C21.325 3.3584 21.6468 3.42241 21.9471 3.54679C22.2474 3.67116 22.5202 3.85346 22.75 4.08327C22.9798 4.31309 23.1621 4.58591 23.2865 4.88618C23.4109 5.18644 23.4749 5.50827 23.4749 5.83327C23.4749 6.15828 23.4109 6.4801 23.2865 6.78037C23.1621 7.08063 22.9798 7.35346 22.75 7.58327L8.16667 22.1666L3.5 23.3333L4.66667 18.6666L19.25 4.08327Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `,
 })
