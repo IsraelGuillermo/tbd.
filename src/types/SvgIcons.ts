@@ -22,4 +22,5 @@ export interface SvgIcons {
   edit: string
   slash: string
   return: string
+  cross: string
 }
