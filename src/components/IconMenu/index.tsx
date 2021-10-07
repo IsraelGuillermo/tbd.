@@ -1,5 +1,11 @@
 import React from "react"
-import { FlatList, StyleSheet, TouchableHighlight, View } from "react-native"
+import {
+  FlatList,
+  Modal,
+  StyleSheet,
+  TouchableHighlight,
+  View,
+} from "react-native"
 import { useTheme } from "../../theme"
 import { SvgIcons } from "../../types/SvgIcons"
 import Icon from "../Icon"
@@ -8,8 +14,12 @@ interface IconData {
   iconName: keyof SvgIcons
   backgroundColor: string
 }
+interface Props {
+  visible: boolean
+  onPress: () => void
+}
 
-export function IconMenu() {
+export function IconMenu({ visible, onPress }: Props) {
   const theme = useTheme()
   const iconData: IconData[] = [
     {
@@ -44,33 +54,48 @@ export function IconMenu() {
       backgroundColor: theme.colors.secondary7,
       borderRadius: 8,
       overflow: "hidden",
+      position: "absolute",
+      top: 125,
+      left: 50,
+    },
+    background: {
+      backgroundColor: "rgba(0,0,0,0.5)",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
     },
   })
   return (
-    <View style={styles.iconMenu}>
-      <FlatList
-        contentContainerStyle={{
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          padding: 8,
-        }}
-        numColumns={3}
-        data={iconData}
-        renderItem={({ item }) => (
-          <TouchableHighlight
-            style={{ borderRadius: 8 }}
-            onPress={() => console.log(item.iconName)}
-          >
-            <Icon
+    <Modal animationType="fade" transparent visible={visible}>
+      <View style={styles.background} onTouchStart={onPress} />
+      <View style={styles.iconMenu}>
+        <FlatList
+          contentContainerStyle={{
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            padding: 8,
+          }}
+          numColumns={3}
+          data={iconData}
+          renderItem={({ item }) => (
+            <TouchableHighlight
+              style={{ borderRadius: 8 }}
+              onPress={() => console.log(item.iconName)}
               key={item.backgroundColor}
-              iconName={item.iconName}
-              backgroundColor={item.backgroundColor}
-              style={{ margin: 8 }}
-            />
-          </TouchableHighlight>
-        )}
-      />
-    </View>
+            >
+              <Icon
+                iconName={item.iconName}
+                backgroundColor={item.backgroundColor}
+                style={{ margin: 8 }}
+                key={item.iconName}
+              />
+            </TouchableHighlight>
+          )}
+        />
+      </View>
+    </Modal>
   )
 }

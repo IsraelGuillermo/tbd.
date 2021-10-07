@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native"
-import React from "react"
+import React, { useState } from "react"
 import { StyleSheet, TextInput, TouchableHighlight, View } from "react-native"
 import { FormSection } from "../../components/FormSection"
 import { IconMenu } from "../../components/IconMenu"
@@ -11,7 +11,7 @@ import { useTheme } from "../../theme"
 export default function AddJarScreen() {
   const theme = useTheme()
   const navigation = useNavigation()
-
+  const [visible, setVisible] = useState(false)
   const styles = StyleSheet.create({
     container: {
       backgroundColor: theme.colors.primary3,
@@ -32,6 +32,7 @@ export default function AddJarScreen() {
     backArrow: {
       width: "100%",
       paddingHorizontal: 16,
+      paddingBottom: 8,
     },
     header: {
       paddingTop: 12,
@@ -59,14 +60,16 @@ export default function AddJarScreen() {
   return (
     <View style={styles.container}>
       <Row style={styles.backArrow}>
-        <SvgIcon variant={"backArrow"} onPress={() => navigation.goBack()} />
+        <TouchableHighlight>
+          <SvgIcon variant={"backArrow"} onPress={() => navigation.goBack()} />
+        </TouchableHighlight>
       </Row>
 
       <Row style={styles.header}>
         <View style={styles.iconContainer}>
           <TouchableHighlight
             style={styles.addIcon}
-            onPress={() => console.log("Icon Pressed!")}
+            onPress={() => setVisible(!visible)}
           >
             <SvgIcon variant={"cross"} />
           </TouchableHighlight>
@@ -107,7 +110,7 @@ export default function AddJarScreen() {
           <Typography variant="heading2">Set number of options</Typography>
         </Row>
       </View>
-      <IconMenu />
+      <IconMenu visible={visible} onPress={() => setVisible(!visible)} />
     </View>
   )
 }
