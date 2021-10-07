@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native"
 import React from "react"
 import { StyleSheet, TextInput, TouchableHighlight, View } from "react-native"
 import { FormSection } from "../../components/FormSection"
+import { IconMenu } from "../../components/IconMenu"
 import Row from "../../components/Row"
 import SvgIcon from "../../components/SvgIcon"
 import Typography from "../../components/Typography"
@@ -60,6 +61,7 @@ export default function AddJarScreen() {
       <Row style={styles.backArrow}>
         <SvgIcon variant={"backArrow"} onPress={() => navigation.goBack()} />
       </Row>
+
       <Row style={styles.header}>
         <View style={styles.iconContainer}>
           <TouchableHighlight
@@ -69,6 +71,7 @@ export default function AddJarScreen() {
             <SvgIcon variant={"cross"} />
           </TouchableHighlight>
         </View>
+
         <View style={styles.input}>
           <TextInput
             placeholder="Jar Name Here"
@@ -100,8 +103,11 @@ export default function AddJarScreen() {
         />
       </View>
       <View style={[styles.formSectionView, { width: 311 }]}>
-        <Typography variant="heading2">Set number of options</Typography>
+        <Row>
+          <Typography variant="heading2">Set number of options</Typography>
+        </Row>
       </View>
+      <IconMenu />
     </View>
   )
 }
