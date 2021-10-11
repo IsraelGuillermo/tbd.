@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { StyleSheet, TextInput, TouchableHighlight, View } from "react-native"
 import { FormSection } from "../../components/FormSection"
 import { IconMenu } from "../../components/IconMenu"
+import { InputBubble } from "../../components/InputBubble"
 import Row from "../../components/Row"
 import SvgIcon from "../../components/SvgIcon"
 import Typography from "../../components/Typography"
@@ -108,6 +109,9 @@ export default function AddJarScreen() {
       <View style={[styles.formSectionView, { width: 311 }]}>
         <Row>
           <Typography variant="heading2">Set number of options</Typography>
+        </Row>
+        <Row>
+          <InputBubble placeholder={"# of options"} width={150} />
         </Row>
       </View>
       <IconMenu visible={visible} onPress={() => setVisible(!visible)} />
