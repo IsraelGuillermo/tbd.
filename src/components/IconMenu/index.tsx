@@ -10,16 +10,17 @@ import { useTheme } from "../../theme"
 import { SvgIcons } from "../../types/SvgIcons"
 import Icon from "../Icon"
 
-interface IconData {
+export interface IconData {
   iconName: keyof SvgIcons
   backgroundColor: string
 }
 interface Props {
   visible: boolean
   onPress: () => void
+  onIconSelect: (obj: IconData) => void
 }
 
-export function IconMenu({ visible, onPress }: Props) {
+export function IconMenu({ visible, onPress, onIconSelect }: Props) {
   const theme = useTheme()
   const iconData: IconData[] = [
     {
@@ -83,7 +84,7 @@ export function IconMenu({ visible, onPress }: Props) {
           renderItem={({ item }) => (
             <TouchableHighlight
               style={{ borderRadius: 8 }}
-              onPress={() => console.log(item.iconName)}
+              onPress={() => onIconSelect(item)}
               key={item.backgroundColor}
             >
               <Icon

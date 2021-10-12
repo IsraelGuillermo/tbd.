@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native"
+import { useNavigation, useRoute } from "@react-navigation/native"
 import React from "react"
 import { StyleSheet, TextInput, TouchableHighlight, View } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
@@ -25,7 +25,6 @@ export default function AddOptionsScreen() {
     formSectionView: {
       marginVertical: 8,
       alignItems: "flex-start",
-      width: 311,
     },
     textInput: {
       fontSize: 24,
@@ -46,6 +45,8 @@ export default function AddOptionsScreen() {
       width: "75%",
     },
   })
+  const route = useRoute()
+  console.log(route)
   return (
     <View style={styles.view}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -71,17 +72,44 @@ export default function AddOptionsScreen() {
             <Typography style={styles.textInput}>Hello</Typography>
           </View>
         </Row>
-        <View style={[styles.formSectionView, { width: 311 }]}>
+        <View style={[styles.formSectionView]}>
           <Row style={{ marginVertical: 8 }}>
             <Typography variant="heading2">Add Options</Typography>
           </Row>
           <Row>
-            <InputBubble width={311}>
+            <InputBubble
+              width={311}
+              style={{
+                height: 44,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <Row>
-                <TextInput placeholder="Type option here and then click +" />
-                <TouchableHighlight onPress={() => console.log("clicked")}>
-                  <SvgIcon variant="add" />
-                </TouchableHighlight>
+                <View
+                  style={{
+                    width: "75%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    paddingLeft: 16,
+                  }}
+                >
+                  <TextInput
+                    placeholderTextColor="white"
+                    placeholder="Type option here and then click +"
+                  />
+                </View>
+                <View
+                  style={{
+                    width: "25%",
+                    alignItems: "flex-end",
+                    paddingRight: 8,
+                  }}
+                >
+                  <TouchableHighlight onPress={() => console.log("clicked")}>
+                    <SvgIcon variant="add" size={24} />
+                  </TouchableHighlight>
+                </View>
               </Row>
             </InputBubble>
           </Row>
