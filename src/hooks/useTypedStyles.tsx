@@ -49,6 +49,13 @@ export function useTypeStyles() {
       fontSize: 24,
       color: colors.primary1,
     },
+    buttonLabel: {
+      fontFamily: fonts.Poppins,
+      fontWeight: "600",
+      fontStyle: "normal",
+      fontSize: 12,
+      color: colors.primary1,
+    },
   })
 
   return typeStyles

@@ -16,6 +16,7 @@ const colors: Colors = {
   secondary6: "#E29727", //icon yellow
   secondary7: "#21283F",
   secondary8: "#2D344B",
+  secondary9: "#14D39A", // selected bubble color
 }
 
 const theme: Theme = {

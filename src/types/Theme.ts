@@ -12,6 +12,7 @@ export interface Colors {
   secondary6: string
   secondary7: string
   secondary8: string
+  secondary9: string
 }
 export interface ThemeFonts {
   Poppins: "Poppins"

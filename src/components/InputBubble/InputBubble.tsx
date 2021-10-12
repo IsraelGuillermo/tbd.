@@ -1,15 +1,18 @@
-import React from "react"
-import { StyleSheet, TextInput, View } from "react-native"
+import React, { ReactElement } from "react"
+import { StyleSheet, TouchableHighlight, View, ViewStyle } from "react-native"
 import { useTheme } from "../../theme"
 import Row from "../Row"
 
 interface Props {
-  placeholder: string
+  children: ChildNode | ReactElement | string
   width: number
+  style?: ViewStyle
+  onPress?: () => void
 }
 
-export function InputBubble({ placeholder, width }: Props) {
+export function InputBubble({ children, width, style, onPress }: Props) {
   const theme = useTheme()
+
   const styles = StyleSheet.create({
     buble: {
       height: 36,
@@ -18,20 +21,12 @@ export function InputBubble({ placeholder, width }: Props) {
       justifyContent: "center",
       alignItems: "center",
     },
-    textInput: {
-      color: theme.colors.primary1,
-      fontFamily: theme.fonts.Poppins,
-    },
   })
   return (
-    <View style={[styles.buble, { width: width }]}>
-      <Row>
-        <TextInput
-          placeholder={placeholder}
-          placeholderTextColor={theme.colors.primary5}
-          style={styles.textInput}
-        />
-      </Row>
-    </View>
+    <TouchableHighlight onPress={onPress}>
+      <View style={[styles.buble, style, { width: width }]}>
+        <Row>{children}</Row>
+      </View>
+    </TouchableHighlight>
   )
 }

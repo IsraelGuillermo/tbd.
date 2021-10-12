@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import React from "react"
-import { Button, StyleSheet, View } from "react-native"
+import { Button, StyleSheet, TouchableHighlight, View } from "react-native"
 import Row from "../../components/Row"
 import SvgIcon from "../../components/SvgIcon"
 import Typography from "../../components/Typography"
@@ -45,10 +45,17 @@ export default function CoinScreen() {
       <View style={styles.header}>
         <Row style={{ justifyContent: "space-evenly" }}>
           <View style={styles.outerBox}>
-            <SvgIcon
-              variant={"backArrow"}
+            <TouchableHighlight
+              style={{
+                height: 32,
+                width: 32,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
               onPress={() => navigation.goBack()}
-            />
+            >
+              <SvgIcon variant={"backArrow"} />
+            </TouchableHighlight>
           </View>
           <View style={styles.centerBox}>
             <Typography variant={"heading1"}>Flip a Coin</Typography>

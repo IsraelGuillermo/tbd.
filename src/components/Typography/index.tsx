@@ -10,6 +10,7 @@ export type TypographyKeys =
   | "subHeading2"
   | "title"
   | "regular"
+  | "buttonLabel"
 
 interface Props extends TextProps {
   children: React.ReactNode
