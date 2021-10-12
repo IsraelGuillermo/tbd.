@@ -23,11 +23,15 @@ export default function AddJarScreen() {
   const [isEnabled, setIsEnabled] = useState(false)
   const toggleSwitch = () => setIsEnabled(!isEnabled)
   const styles = StyleSheet.create({
+    view: {
+      backgroundColor: theme.colors.primary3,
+      flex: 1,
+    },
     container: {
       backgroundColor: theme.colors.primary3,
       flex: 1,
       alignItems: "center",
-      paddingVertical: 56,
+      paddingVertical: 36,
     },
     formSectionView: {
       marginVertical: 8,
@@ -72,11 +76,8 @@ export default function AddJarScreen() {
     },
   })
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <ScrollView
-          contentContainerStyle={{ backgroundColor: theme.colors.secondary8 }}
-        ></ScrollView>
+    <View style={styles.view}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Row style={styles.backArrow}>
           <TouchableHighlight
             style={{
@@ -168,13 +169,13 @@ export default function AddJarScreen() {
           <InputBubble
             width={113}
             style={{ backgroundColor: theme.colors.primary4 }}
-            onPress={() => console.log("click")}
+            onPress={() => navigation.navigate("AddOptionsScreen")}
           >
             <Typography variant="buttonLabel">Create Jar</Typography>
           </InputBubble>
         </Row>
         <IconMenu visible={visible} onPress={() => setVisible(!visible)} />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   )
 }
