@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, View, ViewStyle } from "react-native"
 import { SvgIcons } from "../../types/SvgIcons"
 import SvgIcon from "../SvgIcon"
 
@@ -9,6 +9,7 @@ interface Props {
   height?: number
   width?: number
   size?: number
+  style?: ViewStyle
 }
 
 export default function Icon({
@@ -17,6 +18,7 @@ export default function Icon({
   height,
   width,
   size = 38,
+  style,
 }: Props) {
   const styles = StyleSheet.create({
     background: {
@@ -29,7 +31,7 @@ export default function Icon({
     },
   })
   return (
-    <View style={styles.background}>
+    <View style={[styles.background, style]}>
       <SvgIcon variant={iconName} size={24} />
     </View>
   )

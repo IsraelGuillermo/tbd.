@@ -1,6 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import React from "react"
+import AddJarScreen from "../screens/AddJarScreen"
+import AddOptionsScreen from "../screens/AddOptionsScreen"
 import CoinScreen from "../screens/CoinScreen"
 import LoadingScreen from "../screens/LoadingScreen"
 import ProblemSolverScreen from "../screens/ProblemSolverScreen"
@@ -16,6 +18,8 @@ export default function RootNavigator() {
         <Stack.Screen name="ProblemSolver" component={ProblemSolverScreen} />
         <Stack.Screen name="Main" component={BottomTabNavigator} />
         <Stack.Screen name="CoinScreen" component={CoinScreen} />
+        <Stack.Screen name="AddJarScreen" component={AddJarScreen} />
+        <Stack.Screen name="AddOptionsScreen" component={AddOptionsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

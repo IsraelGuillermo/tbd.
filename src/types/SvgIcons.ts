@@ -19,4 +19,8 @@ export interface SvgIcons {
   video: string
   backArrow: string
   exit: string
+  edit: string
+  slash: string
+  return: string
+  cross: string
 }
