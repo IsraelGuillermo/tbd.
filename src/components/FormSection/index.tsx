@@ -13,6 +13,9 @@ interface Props {
   icon1: keyof SvgIcons
   icon2: keyof SvgIcons
   icon3: keyof SvgIcons
+  onOption1: () => void
+  onOption2: () => void
+  onOption3: () => void
 }
 
 const styles = StyleSheet.create({
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
 })
-
+// const [isSelected, setIsSelected] = useState()
 export function FormSection({
   title,
   option1,
@@ -36,6 +39,9 @@ export function FormSection({
   icon1,
   icon2,
   icon3,
+  onOption1,
+  onOption2,
+  onOption3,
 }: Props) {
   return (
     <View style={styles.container}>
@@ -43,9 +49,21 @@ export function FormSection({
         <Typography variant="heading2">{title}</Typography>
       </Row>
       <Row style={styles.options}>
-        <OptionComponent actionDescription={option1} icon={icon1} />
-        <OptionComponent actionDescription={option2} icon={icon2} />
-        <OptionComponent actionDescription={option3} icon={icon3} />
+        <OptionComponent
+          actionDescription={option1}
+          icon={icon1}
+          onPress={onOption1}
+        />
+        <OptionComponent
+          actionDescription={option2}
+          icon={icon2}
+          onPress={onOption2}
+        />
+        <OptionComponent
+          actionDescription={option3}
+          icon={icon3}
+          onPress={onOption3}
+        />
       </Row>
     </View>
   )

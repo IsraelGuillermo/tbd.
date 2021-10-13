@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, TouchableHighlight, View } from "react-native"
 import { useTheme } from "../../../theme"
 import { SvgIcons } from "../../../types/SvgIcons"
 import SvgIcon from "../../SvgIcon"
@@ -8,9 +8,10 @@ import Typography from "../../Typography"
 interface Props {
   actionDescription: string
   icon: keyof SvgIcons
+  onPress: () => void
 }
 
-export function OptionComponent({ actionDescription, icon }: Props) {
+export function OptionComponent({ actionDescription, icon, onPress }: Props) {
   const theme = useTheme()
   const styles = StyleSheet.create({
     container: {
@@ -36,13 +37,15 @@ export function OptionComponent({ actionDescription, icon }: Props) {
     },
   })
   return (
-    <View style={styles.container}>
-      <View style={styles.iconContainer}>
-        <SvgIcon variant={icon} size={21} />
-      </View>
-      <View style={styles.actionDescription}>
-        <Typography variant={"subHeading1"}>{actionDescription}</Typography>
-      </View>
-    </View>
+    <TouchableHighlight style={styles.container} onPress={onPress}>
+      <>
+        <View style={styles.iconContainer}>
+          <SvgIcon variant={icon} size={21} />
+        </View>
+        <View style={styles.actionDescription}>
+          <Typography variant={"subHeading1"}>{actionDescription}</Typography>
+        </View>
+      </>
+    </TouchableHighlight>
   )
 }
