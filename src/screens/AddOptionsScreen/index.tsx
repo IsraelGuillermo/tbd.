@@ -2,6 +2,7 @@ import { useNavigation, useRoute } from "@react-navigation/native"
 import React from "react"
 import { StyleSheet, TextInput, TouchableHighlight, View } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
+import { IconData } from "../../components/IconMenu"
 import { InputBubble } from "../../components/InputBubble"
 import Row from "../../components/Row"
 import SvgIcon from "../../components/SvgIcon"
@@ -46,7 +47,7 @@ export default function AddOptionsScreen() {
     },
   })
   const route = useRoute()
-  console.log(route.params)
+  const { iconName, title } = route.params
   return (
     <View style={styles.view}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -66,10 +67,10 @@ export default function AddOptionsScreen() {
 
         <Row style={styles.header}>
           <View style={{ marginRight: 8 }}>
-            <SvgIcon variant={"film"} />
+            <SvgIcon variant={iconName} size={24} />
           </View>
           <View style={styles.title}>
-            <Typography style={styles.textInput}>tee</Typography>
+            <Typography style={styles.textInput}>{title}</Typography>
           </View>
         </Row>
         <View style={[styles.formSectionView]}>

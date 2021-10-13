@@ -75,10 +75,17 @@ export function AddJarForm() {
       <Row style={styles.header}>
         <View style={styles.iconContainer}>
           <TouchableHighlight
-            style={styles.addIcon}
-            onPress={() => setVisible(!visible)}
+            onPress={() => {
+              setVisible(!visible)
+            }}
           >
-            <SvgIcon variant={"cross"} />
+            {values.iconName !== "cross" ? (
+              <SvgIcon variant={values.iconName} size={24} />
+            ) : (
+              <View style={styles.addIcon}>
+                <SvgIcon variant={"cross"} />
+              </View>
+            )}
           </TouchableHighlight>
         </View>
 
