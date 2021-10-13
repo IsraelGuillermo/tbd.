@@ -1,4 +1,3 @@
-// import { useNavigation } from "@react-navigation/native"
 import { useFormikContext } from "formik"
 import React, { useState } from "react"
 import {
@@ -26,7 +25,10 @@ export function AddJarForm({ onSubmit }: Props) {
   const [visible, setVisible] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
 
-  const toggleSwitch = () => setIsEnabled(!isEnabled)
+  const toggleSwitch = () => {
+    setIsEnabled(!isEnabled)
+    setFieldValue("setOptions", !isEnabled)
+  }
   const theme = useTheme()
   const styles = StyleSheet.create({
     formSectionView: {
@@ -66,7 +68,6 @@ export function AddJarForm({ onSubmit }: Props) {
       fontFamily: theme.fonts.Poppins,
     },
   })
-  //   const navigation = useNavigation()
   const formik = useFormikContext<InitialValues["JarInformation"]>()
   const { values, handleChange, setFieldValue } = formik
 
@@ -113,21 +114,27 @@ export function AddJarForm({ onSubmit }: Props) {
           title={"After an Option is Drawn..."}
           option1="Return"
           icon1="return"
+          onOption1={() => setFieldValue("afterOptionDrawn", "Return")}
           option2="Remove"
           icon2="slash"
+          onOption2={() => setFieldValue("afterOptionDrawn", "Remove")}
           option3="Replace"
           icon3="edit"
+          onOption3={() => setFieldValue("afterOptionDrawn", "Replace")}
         />
       </View>
       <View style={styles.formSectionView}>
         <FormSection
           title={"When no options are left..."}
           option1="Return All"
+          onOption1={() => setFieldValue("whenNoOptionsLeft", "Return All")}
           icon1="return"
           option2="Archive Jar"
           icon2="slash"
+          onOption2={() => setFieldValue("whenNoOptionsLeft", "Archive Jar")}
           option3="Replace All"
           icon3="edit"
+          onOption3={() => setFieldValue("whenNoOptionsLeft", "Replace All")}
         />
       </View>
       <View style={[styles.formSectionView, { width: 311 }]}>
@@ -150,6 +157,7 @@ export function AddJarForm({ onSubmit }: Props) {
             <InputBubble width={150}>
               <TextInput
                 placeholder={"# of options"}
+                onChangeText={handleChange("numberOfOptions")}
                 placeholderTextColor={theme.colors.primary5}
                 style={styles.optionsInput}
               />

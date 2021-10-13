@@ -34,6 +34,10 @@ export default function AddJarScreen() {
     title: "",
     iconName: "",
     iconColor: "",
+    setOptions: false,
+    numberOfOptions: undefined,
+    afterOptionDrawn: "",
+    whenNoOptionsLeft: "",
   }
 
   const validationSchema: Yup.SchemaOf<InitialValues["JarInformation"]> =
@@ -41,6 +45,10 @@ export default function AddJarScreen() {
       title: Yup.string().required("A title is required"),
       iconColor: Yup.string().required("Please select an Icon"),
       iconName: Yup.string().required("Please select an Icon"),
+      setOptions: Yup.boolean(),
+      numberOfOptions: Yup.number(),
+      afterOptionDrawn: Yup.string().required(),
+      whenNoOptionsLeft: Yup.string().required(),
     })
   const navigateToNextScreen = (values: InitialValues["JarInformation"]) => {
     navigation.navigate({
@@ -49,6 +57,7 @@ export default function AddJarScreen() {
         iconName: values.iconName,
         title: values.title,
         iconColor: values.iconColor,
+        setOptions: values.setOptions,
       },
     })
   }

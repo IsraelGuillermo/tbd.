@@ -58,7 +58,7 @@ export default function AddOptionsScreen() {
     useRoute<RouteProp<AddJarNavigationParamList, "AddOptionsScreen">>()
   console.log(route)
   const { iconName, title, iconColor } = route.params
-  console.log(iconName)
+
   return (
     <View style={styles.view}>
       <ScrollView contentContainerStyle={styles.container}>
