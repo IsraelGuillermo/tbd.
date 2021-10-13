@@ -1,9 +1,8 @@
-import { SvgIcons } from "./SvgIcons"
-
 interface InitialValues {
   JarInformation: {
     title: string | undefined
-    iconName: keyof SvgIcons
+    iconName: string | undefined
+    iconColor: string | undefined
   }
 }
 

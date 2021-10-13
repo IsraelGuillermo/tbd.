@@ -1,13 +1,13 @@
-import { useNavigation, useRoute } from "@react-navigation/native"
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native"
 import React from "react"
 import { StyleSheet, TextInput, TouchableHighlight, View } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
-import { IconData } from "../../components/IconMenu"
 import { InputBubble } from "../../components/InputBubble"
 import Row from "../../components/Row"
 import SvgIcon from "../../components/SvgIcon"
 import Typography from "../../components/Typography"
 import { useTheme } from "../../theme"
+import { SvgIcons } from "../../types/SvgIcons"
 
 export default function AddOptionsScreen() {
   const theme = useTheme()
@@ -46,8 +46,19 @@ export default function AddOptionsScreen() {
       width: "75%",
     },
   })
-  const route = useRoute()
-  const { iconName, title } = route.params
+
+  type AddJarNavigationParamList = {
+    AddOptionsScreen: {
+      iconName: string
+      title: string
+      iconColor: string
+    }
+  }
+  const route =
+    useRoute<RouteProp<AddJarNavigationParamList, "AddOptionsScreen">>()
+  console.log(route)
+  const { iconName, title, iconColor } = route.params
+  console.log(iconName)
   return (
     <View style={styles.view}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -67,7 +78,11 @@ export default function AddOptionsScreen() {
 
         <Row style={styles.header}>
           <View style={{ marginRight: 8 }}>
-            <SvgIcon variant={iconName} size={24} />
+            <SvgIcon
+              variant={iconName as keyof SvgIcons}
+              size={24}
+              color={iconColor}
+            />
           </View>
           <View style={styles.title}>
             <Typography style={styles.textInput}>{title}</Typography>
@@ -124,7 +139,7 @@ export default function AddOptionsScreen() {
           <InputBubble
             width={135}
             style={{ backgroundColor: theme.colors.primary4 }}
-            onPress={() => console.log("click")}
+            onPress={() => console.log(route.params)}
           >
             <Typography variant="buttonLabel">Submit Options</Typography>
           </InputBubble>

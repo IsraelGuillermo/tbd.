@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native"
+// import { useNavigation } from "@react-navigation/native"
 import { useFormikContext } from "formik"
 import React, { useState } from "react"
 import {
@@ -15,9 +15,14 @@ import Row from "../../components/Row"
 import SvgIcon from "../../components/SvgIcon"
 import Typography from "../../components/Typography"
 import { useTheme } from "../../theme"
+import { SvgIcons } from "../../types/SvgIcons"
 import InitialValues from "../../types/initialValues"
 
-export function AddJarForm() {
+interface Props {
+  onSubmit: (values: InitialValues["JarInformation"]) => void
+}
+
+export function AddJarForm({ onSubmit }: Props) {
   const [visible, setVisible] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
 
@@ -61,15 +66,16 @@ export function AddJarForm() {
       fontFamily: theme.fonts.Poppins,
     },
   })
-  const navigation = useNavigation()
+  //   const navigation = useNavigation()
   const formik = useFormikContext<InitialValues["JarInformation"]>()
   const { values, handleChange, setFieldValue } = formik
 
   const selectIcon = (item: IconData) => {
     setFieldValue("iconName", item.iconName)
+    setFieldValue("iconColor", item.backgroundColor)
     setVisible(!visible)
   }
-
+  console.log({ values })
   return (
     <>
       <Row style={styles.header}>
@@ -79,8 +85,12 @@ export function AddJarForm() {
               setVisible(!visible)
             }}
           >
-            {values.iconName !== "cross" ? (
-              <SvgIcon variant={values.iconName} size={24} />
+            {values.iconName ? (
+              <SvgIcon
+                variant={values.iconName as keyof SvgIcons}
+                size={24}
+                color={values.iconColor}
+              />
             ) : (
               <View style={styles.addIcon}>
                 <SvgIcon variant={"cross"} />
@@ -157,22 +167,16 @@ export function AddJarForm() {
         <InputBubble
           width={113}
           style={{ backgroundColor: theme.colors.primary4 }}
-          onPress={() => {
-            navigation.navigate({
-              name: "AddOptionsScreen",
-              params: {
-                iconName: values.title,
-                title: values.iconName,
-              },
-            })
-          }}
+          onPress={() => onSubmit(values)}
         >
           <Typography variant="buttonLabel">Create Jar</Typography>
         </InputBubble>
       </Row>
       <IconMenu
         visible={visible}
-        onPress={() => setVisible(!visible)}
+        onPress={() => {
+          setVisible(!visible)
+        }}
         onIconSelect={selectIcon}
       />
     </>

@@ -18,14 +18,16 @@ export default function SvgIcon({
   width,
   size = 16,
   onPress,
+  color,
 }: Props) {
-  const icon = useSvgIcons()
+  const icon = useSvgIcons(color)
   return (
     <SvgXml
       xml={icon[variant]}
       width={width ?? size}
       height={height ?? size}
       onPress={onPress}
+      color={color}
     />
   )
 }

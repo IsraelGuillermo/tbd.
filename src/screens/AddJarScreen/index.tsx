@@ -32,27 +32,40 @@ export default function AddJarScreen() {
   })
   const initialValues: InitialValues["JarInformation"] = {
     title: "",
-    iconName: "cross",
+    iconName: "",
+    iconColor: "",
   }
+
   const validationSchema: Yup.SchemaOf<InitialValues["JarInformation"]> =
     Yup.object({
-      title: Yup.string(),
-      iconName: Yup.string(),
+      title: Yup.string().required("A title is required"),
+      iconColor: Yup.string().required("Please select an Icon"),
+      iconName: Yup.string().required("Please select an Icon"),
     })
+  const navigateToNextScreen = (values: InitialValues["JarInformation"]) => {
+    navigation.navigate({
+      name: "AddOptionsScreen",
+      params: {
+        iconName: values.iconName,
+        title: values.title,
+        iconColor: values.iconColor,
+      },
+    })
+  }
 
   function onSubmit(values: InitialValues["JarInformation"]) {
-    const { title, iconName } = values
+    const { title, iconName, iconColor } = values
 
-    if (title && iconName) {
-      const variables = {
-        title,
-        iconName,
-      }
+    if (title && iconName && iconColor) {
+      // const variables = {
+      //   title,
+      //   iconName,
+      // }
 
-      console.log(variables)
+      navigateToNextScreen(values)
     }
   }
-  console.log(initialValues.title)
+
   return (
     <Formik
       initialValues={initialValues}
@@ -75,7 +88,7 @@ export default function AddJarScreen() {
             </TouchableHighlight>
           </Row>
 
-          <AddJarForm />
+          <AddJarForm onSubmit={onSubmit} />
         </ScrollView>
       </View>
     </Formik>
