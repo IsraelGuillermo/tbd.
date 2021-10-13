@@ -32,7 +32,7 @@ export default function AddJarScreen() {
   })
   const initialValues: InitialValues["JarInformation"] = {
     title: "",
-    iconName: "",
+    iconName: "cross",
   }
   const validationSchema: Yup.SchemaOf<InitialValues["JarInformation"]> =
     Yup.object({

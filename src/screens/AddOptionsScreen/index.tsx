@@ -46,7 +46,7 @@ export default function AddOptionsScreen() {
     },
   })
   const route = useRoute()
-  console.log(route)
+  console.log(route.params)
   return (
     <View style={styles.view}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -69,7 +69,7 @@ export default function AddOptionsScreen() {
             <SvgIcon variant={"film"} />
           </View>
           <View style={styles.title}>
-            <Typography style={styles.textInput}>Hello</Typography>
+            <Typography style={styles.textInput}>tee</Typography>
           </View>
         </Row>
         <View style={[styles.formSectionView]}>
